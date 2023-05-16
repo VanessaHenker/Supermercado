@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <stdlib.h>
 using namespace std;
-
+//teste
 int main(){
   float prod[5], qtd1[5], qtd2[5], dinheiro, total, troco;
   int codigo, i, opcao;
