@@ -3,9 +3,9 @@
 #include <iomanip>
 #include <stdlib.h>
 using namespace std;
-//teste
+
 int main(){
-  float prod[5], qtd1[5], qtd2[5], dinheiro, total, troco, guarda_qtd;
+  float prod[5], qtd1[5], qtd2[5], dinheiro, total, troco, guarda_qtd, dinheiro2, total2;
   int codigo, i, opcao, n;
   char cancelar, nota_fiscal;
   do{
@@ -15,7 +15,9 @@ int main(){
     i = 0;
     guarda_qtd = 0;
     total = 0;
-         qtd1[0] = 0;    qtd2[0] = 0;
+    dinheiro2;
+    total2;
+    prod[0] = 1;        qtd1[0] = 0;    qtd2[0] = 0;
     prod[1] = 2;        qtd1[1] = 0;    qtd2[1] = 0;
     prod[2] = 2;        qtd1[2] = 0;    qtd2[2] = 0;
     prod[3] = 5.50;     qtd1[3] = 0;    qtd2[3] = 0;
@@ -30,30 +32,24 @@ int main(){
       cin >> codigo;
       switch (codigo){
       case 0:
-        prod[0] = 1;   
         cout << "\nQuantidade de pao: ";
         cin >> qtd1[0];
-        guarda_qtd = qtd1[0];
-        break;
+       break;
       case 1:
         cout << "\nQuantidade de mussarela: ";
         cin >> qtd1[1];
-        guarda_qtd = qtd1[1];
         break;
       case 2:
         cout << "\nQuantidade de presunto: ";
         cin >> qtd1[2];
-        guarda_qtd = qtd1[2];
-        break;
+       break;
       case 3:
         cout << "\nQuantidade de leite: ";
         cin >> qtd1[3];
-        guarda_qtd =  qtd1[3];
         break;
       case 4:
         cout << "\nQuantidade de manteiga: ";
         cin >> qtd1[4];
-        guarda_qtd = qtd1[0];
         break;
       default:
         cout << "\nCodigo invalido, tente novamente!";
@@ -62,35 +58,36 @@ int main(){
     }
     cout << "\nDeseja finalizar a compra?[S/N]: ";
     cin >> cancelar;
-
+      
     while (cancelar == 'n' || cancelar == 'N'){
       do{
         cout << "\nCodigo do produto: ";
         cin >> codigo;
         switch (codigo){
         case 0:
-          
           cout << "\nQuantidade de pao: ";
-          cin >> qtd2[0];
+          cin >> guarda_qtd;
+          qtd2[0] = qtd2[0] + guarda_qtd;
           break;
         case 1:
           cout << "\nQuantidade de mussarela: ";
-          cin >> qtd2[1];
-          guarda_qtd = guarda_qtd + qtd2[1];
-          break;
+          cin >> guarda_qtd;
+          qtd2[1] = qtd2[1] + guarda_qtd;
+           break;
         case 2:
           cout << "\nQuantidade de presunto: ";
-          cin >> qtd2[2];
+          cin >> guarda_qtd;
+          qtd2[2] = qtd2[2] + guarda_qtd;
           break;
         case 3:
           cout << "\nQuantidade de leite: ";
-          cin >> qtd2[3];
-          guarda_qtd = guarda_qtd + qtd2[3];
+          cin >> guarda_qtd;
+          qtd2[3] = qtd2[3] + guarda_qtd;
           break;
         case 4:
           cout << "\nQuantidade de manteiga: ";
-          cin >> qtd2[4];
-          guarda_qtd = guarda_qtd + qtd2[4];
+          cin >> guarda_qtd;
+          qtd2[4] = qtd2[4] + guarda_qtd;
           break;
         default:
          cout << "\nCodigo invalido, tente novamente!";
@@ -101,8 +98,10 @@ int main(){
       cin >> cancelar;
     }
     
+    ]
+    system("cls");
     for (i = 0; i < 5; i++){
-      total = prod[i] * guarda_qtd;
+      total = total + ((prod[i] * qtd1[i]) + (prod[i] * qtd2[i]));
     }
     
     cout << "\nTotal da compra: " << total << " REAIS";
@@ -111,21 +110,23 @@ int main(){
 
     troco = dinheiro - total;
 
+    total2 = total + total2;
+    dinheiro2 = dinheiro + dinheiro2;
+    
     while (troco < 0){
       cout << "\nDinheiro insuficiente. Faltam R$" << troco * (-1) << " REAIS";
-      total = troco * (-1);
+      total2 = troco * (-1);
       cout << endl;
       cout << "\nQuanto sera o pagamento: ";
-      cin >> dinheiro;
-
-      troco = dinheiro - total;
+      cin >> dinheiro2;
+      troco = dinheiro2 - total2;
+      dinheiro = dinheiro + dinheiro2;
     }
-
     cout << "Troco R$ " << troco;
     cout << endl;
     cout << "\nDeseja emitir a sua nota fiscal?[S/N]: ";
     cin >> nota_fiscal;
-   
+    system("cls");
     if (nota_fiscal == 's' || nota_fiscal == 'S'){
       cout << "\n            PRECO UNI              QUANTIDADE                 PRECO";
       cout << endl;
@@ -155,13 +156,13 @@ int main(){
       cout << endl;
       cout << "\nSe deseja fazer uma nova compra digite 1: ";
       cin >> opcao;
-    }
+     }
     else{
       cout << "\nCOMPRA FINALIZADA, VOLTE SEMPRE!";
       cout << "\nSe deseja fazer uma nova compra digite 1: ";
       cin >> opcao;
     }
-  
+  system("cls");
   } while (opcao == 1);
   return 0;
 }
