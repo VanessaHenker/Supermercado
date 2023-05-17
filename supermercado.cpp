@@ -72,7 +72,6 @@ int main(){
           
           cout << "\nQuantidade de pao: ";
           cin >> qtd2[0];
-          guarda_qtd = guarda_qtd + qtd2[0];
           break;
         case 1:
           cout << "\nQuantidade de mussarela: ";
@@ -82,7 +81,6 @@ int main(){
         case 2:
           cout << "\nQuantidade de presunto: ";
           cin >> qtd2[2];
-          guarda_qtd = guarda_qtd + qtd2[2];
           break;
         case 3:
           cout << "\nQuantidade de leite: ";
