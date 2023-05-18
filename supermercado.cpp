@@ -5,7 +5,7 @@
 using namespace std;
 
 int main(){
-  float prod[5], qtd1[5], qtd2[5], dinheiro, total, troco, guarda_qtd, dinheiro2, total2;
+  float prod[5], qtd1[5], qtd2[5], dinheiro, total, troco, guarda_qtd1, guarda_qtd2, dinheiro2, total2;
   int codigo, i, opcao, n;
   char cancelar, nota_fiscal;
   do{
@@ -13,140 +13,141 @@ int main(){
     dinheiro = 0;
     troco = 0;
     i = 0;
-    guarda_qtd = 0;
+    guarda_qtd1 = 0;
+    guarda_qtd2 = 0;
     total = 0;
     dinheiro2 = 0;
-    total2 = 0;
-    prod[0] = 1;         qtd1[0] = 0;     qtd2[0] = 0;
-    prod[1] = 2;         qtd1[1] = 0;     qtd2[1] = 0;
-    prod[2] = 2;         qtd1[2] = 0;     qtd2[2] = 0;
-    prod[3] = 5.50;      qtd1[3] = 0;     qtd2[3] = 0;
-    prod[4] = 6.50;      qtd1[4] = 0;     qtd2[4] = 0;
+    total2 = 0;   
+    prod[0] = 1;        qtd1[0] = 0;      qtd2[0] = 0;
+    prod[1] = 2;        qtd1[1] = 0;      qtd2[1] = 0;
+    prod[2] = 2;        qtd1[2] = 0;      qtd2[2] = 0;    
+    prod[3] = 5.50;     qtd1[3] = 0;      qtd2[3] = 0;
+    prod[4] = 6.50;     qtd1[4] = 0;      qtd2[4] = 0;
 
     cout << "---------------------------------------";
     cout << "\nBem vindo ao nosso estabelecimento!";
     cout << "\n---------------------------------------";
 
     while (codigo > 4){
-       do{
+      do{
         cout << endl;
         cout << "\nCodigo do produto: ";
         cin >> codigo;
         switch (codigo){
         case 0:
           cout << "\nQuantidade de pao: ";
-          cin >> qtd1[0];
-          if (qtd1[0] < 0){
-            cout << "\nValor ivalido!";
+          cin >> guarda_qtd1;
+          if (guarda_qtd1 < 0){
+            cout << "VALOR INVALIDO!";
+            guarda_qtd1 = 0;
           }
-          else{
-            cout << "\nDeseja finalizar a compra?[S/N]: ";
-            cin >> cancelar;
-          }
+          qtd1[0] = qtd1[0] + guarda_qtd1;
           break;
         case 1:
           cout << "\nQuantidade de mussarela: ";
-          cin >> qtd1[1];
-          if (qtd1[1] < 0){
-            cout << "\nValor ivalido!";
+          cin >> guarda_qtd1;
+          if (guarda_qtd1 < 0){
+            cout << "VALOR INVALIDO!";
+            guarda_qtd1 = 0;
           }
-          else{
-          cout << "\nDeseja finalizar a compra?[S/N]: ";
-          cin >> cancelar;
-          }
+          qtd1[1] = qtd1[1] + guarda_qtd1;
           break;
         case 2:
           cout << "\nQuantidade de presunto: ";
-          cin >> qtd1[2];
-          if (qtd1[2] < 0){
-            cout << "\nValor ivalido!";
+          cin >> guarda_qtd1;
+          if (guarda_qtd1 < 0){
+            cout << "VALOR INVALIDO!";
+            guarda_qtd1 = 0;
           }
-          else{
-            cout << "\nDeseja finalizar a compra?[S/N]: ";
-            cin >> cancelar;
-          }
+          qtd1[2] = qtd1[2] + guarda_qtd1;
           break;
         case 3:
           cout << "\nQuantidade de leite: ";
-          cin >> qtd1[3];
-          if (qtd1[3] < 0){
-            cout << "\nValor ivalido!";
+          cin >> guarda_qtd1;
+          if (guarda_qtd1 < 0){
+            cout << "VALOR INVALIDO!";
+            guarda_qtd1 = 0;
           }
-          else{
-          cout << "\nDeseja finalizar a compra?[S/N]: ";
-          cin >> cancelar;
-          }
+          qtd1[3] = qtd1[3] + guarda_qtd1;
           break;
         case 4:
           cout << "\nQuantidade de manteiga: ";
-          cin >> qtd1[4];
-          if (qtd1[4] < 0){
-            cout << "\nValor ivalido!";
+          cin >> guarda_qtd1;
+          if (guarda_qtd1 < 0){
+            cout << "VALOR INVALIDO!";
+            guarda_qtd1 = 0;
           }
-          else{
-          cout << "\nDeseja finalizar a compra?[S/N]: ";
-          cin >> cancelar;
-          }
+          qtd1[4] = qtd1[4] + guarda_qtd1;
           break;
         default:
           cout << "\nCodigo invalido, tente novamente!";
           break;
         }
-      } while(qtd1[i] < 0); 
+      } while (guarda_qtd1 == 0);
     }
-    
+
+    cout << "\nDeseja finalizar a compra?[S/N]: ";
+    cin >> cancelar;
+
     while (cancelar == 'n' || cancelar == 'N'){
       do{
         do{
+          cout << endl;
           cout << "\nCodigo do produto: ";
           cin >> codigo;
           switch (codigo){
           case 0:
             cout << "\nQuantidade de pao: ";
-            cin >> guarda_qtd;
-            if (guarda_qtd < 0){
-              cout << "\nValor ivalido!";
+            cin >> guarda_qtd2;
+            if (guarda_qtd2 < 0){
+              cout << "VALOR INVALIDO!";
+              guarda_qtd2 = 0;
             }
-            qtd2[0] = qtd2[0] + guarda_qtd;
+            qtd2[0] = qtd2[0] + guarda_qtd2;
             break;
           case 1:
             cout << "\nQuantidade de mussarela: ";
-            cin >> guarda_qtd;
-            if (guarda_qtd < 0){
-              cout << "\nValor ivalido!";
+            cin >> guarda_qtd2;
+            if (guarda_qtd2 < 0){
+              cout << "VALOR INVALIDO!";
             }
-            qtd2[1] = qtd2[1] + guarda_qtd;
+            qtd2[1] = qtd2[1] + guarda_qtd2;
             break;
           case 2:
             cout << "\nQuantidade de presunto: ";
-            cin >> guarda_qtd;
-            if (guarda_qtd < 0){
-              cout << "\nValor ivalido!";
+            cin >> guarda_qtd2;
+            if (guarda_qtd2 < 0){
+              cout << "VALOR INVALIDO!";
+              guarda_qtd2 = 0;
             }
-            qtd2[2] = qtd2[2] + guarda_qtd;
+            qtd2[2] = qtd2[2] + guarda_qtd2;
             break;
           case 3:
             cout << "\nQuantidade de leite: ";
-            cin >> guarda_qtd;
-            if (guarda_qtd < 0){
-              cout << "\nValor ivalido!";
+            cin >> guarda_qtd2;
+            if (guarda_qtd2 < 0){
+              cout << "VALOR INVALIDO!";
+              guarda_qtd2 = 0;
             }
-            qtd2[3] = qtd2[3] + guarda_qtd;
+            qtd2[3] = qtd2[3] + guarda_qtd2;
             break;
           case 4:
             cout << "\nQuantidade de manteiga: ";
-            cin >> guarda_qtd;
-            if (guarda_qtd < 0){
-              cout << "\nValor ivalido!";
+            cin >> guarda_qtd2;
+            if (guarda_qtd2 < 0){
+              cout << "VALOR INVALIDO!";
+              guarda_qtd2 = 0;
             }
-            qtd2[4] = qtd2[4] + guarda_qtd;
+            qtd2[4] = qtd2[4] + guarda_qtd2;
             break;
           default:
             cout << "\nCodigo invalido, tente novamente!";
             break;
           }
+        } while (guarda_qtd2 == 0);
         } while (codigo > 4);
-      } while (guarda_qtd < 0);
+      
+      cout << endl;
       cout << "\nDeseja finalizar a compra?[S/N]: ";
       cin >> cancelar;
     }
