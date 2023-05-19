@@ -4,9 +4,10 @@
 #include <stdlib.h>
 using namespace std;
 
-int main(){
-  float prod[5], qtd1[5], qtd2[5], dinheiro, total, troco, guarda_qtd1, guarda_qtd2, dinheiro2, total2;
-  int codigo, i, opcao, n;
+int main()
+{
+  float prod[5], qtd1[5], dinheiro, total, troco, guarda_qtd1, guarda_qtd2, dinheiro2, total2;
+  int qtd2[5], codigo, i, opcao, n;
   char cancelar, nota_fiscal;
   do{
     codigo = 5;
@@ -17,143 +18,164 @@ int main(){
     guarda_qtd2 = 0;
     total = 0;
     dinheiro2 = 0;
-    total2 = 0;   
-    prod[0] = 1;        qtd1[0] = 0;      qtd2[0] = 0;
-    prod[1] = 2;        qtd1[1] = 0;      qtd2[1] = 0;
-    prod[2] = 2;        qtd1[2] = 0;      qtd2[2] = 0;    
-    prod[3] = 5.50;     qtd1[3] = 0;      qtd2[3] = 0;
-    prod[4] = 6.50;     qtd1[4] = 0;      qtd2[4] = 0;
+    total2 = 0;
 
+    prod[0] = 1;         qtd1[0] = 0;         qtd2[0] = 0;
+    prod[1] = 2;         qtd1[1] = 0;         qtd2[1] = 0;
+    prod[2] = 2;         qtd1[2] = 0;         qtd2[2] = 0;
+    prod[3] = 5.50;      qtd1[3] = 0;         qtd2[3] = 0;
+    prod[4] = 6.50;      qtd1[4] = 0;         qtd2[4] = 0;
+    
     cout << "---------------------------------------";
     cout << "\nBem vindo ao nosso estabelecimento!";
     cout << "\n---------------------------------------";
 
-    while (codigo > 4){
+    while (codigo > 4){ // Vai repitir enquanto codigo for maior que 4
+      cout << endl;
+      cout << "\nCodigo do produto: ";
+      cin >> codigo;
       do{
-        cout << endl;
-        cout << "\nCodigo do produto: ";
-        cin >> codigo;
         switch (codigo){
         case 0:
+          cout << endl;
           cout << "\nQuantidade de pao: ";
           cin >> guarda_qtd1;
-          if (guarda_qtd1 < 0){
+          if (guarda_qtd1 < 0){ // Se de guarda_qtd1 for menor 0 sera invalido
             cout << "VALOR INVALIDO!";
-            guarda_qtd1 = 0;
           }
-          qtd1[0] = qtd1[0] + guarda_qtd1;
+          else{
+            qtd1[0] = qtd1[0] + guarda_qtd1; // Se guarda_qtd1 for maior que 0 sera valido
+          }
           break;
         case 1:
+          cout << endl;
           cout << "\nQuantidade de mussarela: ";
           cin >> guarda_qtd1;
           if (guarda_qtd1 < 0){
-            cout << "VALOR INVALIDO!";
-            guarda_qtd1 = 0;
+            cout << "\nVALOR INVALIDO!";
           }
-          qtd1[1] = qtd1[1] + guarda_qtd1;
+          else{
+            qtd1[1] = qtd1[1] + guarda_qtd1;
+          }
           break;
         case 2:
+          cout << endl;
           cout << "\nQuantidade de presunto: ";
           cin >> guarda_qtd1;
           if (guarda_qtd1 < 0){
-            cout << "VALOR INVALIDO!";
-            guarda_qtd1 = 0;
+            cout << "\nVALOR INVALIDO!";
           }
-          qtd1[2] = qtd1[2] + guarda_qtd1;
+          else
+          {
+            qtd1[2] = qtd1[2] + guarda_qtd1;
+          }
           break;
         case 3:
+          cout << endl;
           cout << "\nQuantidade de leite: ";
           cin >> guarda_qtd1;
           if (guarda_qtd1 < 0){
-            cout << "VALOR INVALIDO!";
-            guarda_qtd1 = 0;
+            cout << "\nVALOR INVALIDO!";
           }
-          qtd1[3] = qtd1[3] + guarda_qtd1;
+          else{
+            qtd1[3] = qtd1[3] + guarda_qtd1;
+          }
           break;
         case 4:
+          cout << endl;
           cout << "\nQuantidade de manteiga: ";
           cin >> guarda_qtd1;
           if (guarda_qtd1 < 0){
-            cout << "VALOR INVALIDO!";
-            guarda_qtd1 = 0;
+            cout << "\nVALOR INVALIDO!";
           }
-          qtd1[4] = qtd1[4] + guarda_qtd1;
+          else{
+            qtd1[4] = qtd1[4] + guarda_qtd1;
+          }
           break;
         default:
           cout << "\nCodigo invalido, tente novamente!";
           break;
         }
-      } while (guarda_qtd1 == 0);
+      } while (guarda_qtd1 < 0); //  Vai repetir enquanto guarda_qtd for igual 0
     }
-
     cout << "\nDeseja finalizar a compra?[S/N]: ";
     cin >> cancelar;
 
-    while (cancelar == 'n' || cancelar == 'N'){
+    while (cancelar == 'n' || cancelar == 'N'){ // Enquanto cancelar nao for igual n ou N vai repetir
       do{
+        cout << endl;
+        cout << "\nCodigo do produto: ";
+        cin >> codigo;
         do{
-          cout << endl;
-          cout << "\nCodigo do produto: ";
-          cin >> codigo;
           switch (codigo){
           case 0:
+            cout << endl;
             cout << "\nQuantidade de pao: ";
             cin >> guarda_qtd2;
-            if (guarda_qtd2 < 0){
-              cout << "VALOR INVALIDO!";
-              guarda_qtd2 = 0;
+            if (guarda_qtd2 < 0){ // Se de guarda_qtd1 for menor 0 sera invalido
+              cout << "\nVALOR INVALIDO!";
             }
-            qtd2[0] = qtd2[0] + guarda_qtd2;
+            else{
+              qtd2[0] = qtd2[0] + guarda_qtd1;  // Se guarda_qtd1 for maior que 0 sera valido
+            }
             break;
           case 1:
+            cout << endl;
             cout << "\nQuantidade de mussarela: ";
             cin >> guarda_qtd2;
             if (guarda_qtd2 < 0){
-              cout << "VALOR INVALIDO!";
+              cout << "\nVALOR INVALIDO!";
             }
-            qtd2[1] = qtd2[1] + guarda_qtd2;
+            else{
+              qtd2[1] = qtd2[1] + guarda_qtd2;
+            }
             break;
           case 2:
+            cout << endl;
             cout << "\nQuantidade de presunto: ";
             cin >> guarda_qtd2;
             if (guarda_qtd2 < 0){
-              cout << "VALOR INVALIDO!";
-              guarda_qtd2 = 0;
+              cout << "\nVALOR INVALIDO!";
             }
-            qtd2[2] = qtd2[2] + guarda_qtd2;
+            else{
+              qtd2[2] = qtd2[2] + guarda_qtd2;
+            }
             break;
           case 3:
+            cout << endl;
             cout << "\nQuantidade de leite: ";
             cin >> guarda_qtd2;
             if (guarda_qtd2 < 0){
-              cout << "VALOR INVALIDO!";
-              guarda_qtd2 = 0;
+              cout << "\nVALOR INVALIDO!";
             }
-            qtd2[3] = qtd2[3] + guarda_qtd2;
+            else{
+              qtd2[3] = qtd2[3] + guarda_qtd2;
+            }
             break;
           case 4:
+            cout << endl;
             cout << "\nQuantidade de manteiga: ";
             cin >> guarda_qtd2;
             if (guarda_qtd2 < 0){
-              cout << "VALOR INVALIDO!";
-              guarda_qtd2 = 0;
+              cout << "\nVALOR INVALIDO!";
             }
-            qtd2[4] = qtd2[4] + guarda_qtd2;
+            else{
+              qtd2[4] = qtd2[4] + guarda_qtd2;
+            }
             break;
           default:
             cout << "\nCodigo invalido, tente novamente!";
             break;
           }
-        } while (guarda_qtd2 == 0);
-        } while (codigo > 4);
-      
-      cout << endl;
+        } while (guarda_qtd2 < 0); // Vai repetir enquanto guarda_qtd for igual 0
+      } while (codigo > 4);         // // Vai repetir enquanto codigo for maior que 4
+
       cout << "\nDeseja finalizar a compra?[S/N]: ";
       cin >> cancelar;
     }
     system("cls");
     for (i = 0; i < 5; i++){
-      total = total + ((prod[i] * qtd1[i]) + (prod[i] * qtd2[i]));
+      total = total + ((prod[i] * qtd1[i]) + (prod[i] * qtd2[i])); // Total recebe a soma das variaveis
     }
 
     cout << "\nTotal da compra: " << total << " REAIS";
@@ -167,21 +189,23 @@ int main(){
 
     while (troco < 0){
       cout << "\nDinheiro insuficiente. Faltam R$" << troco * (-1) << " REAIS";
-      total2 = troco * (-1);
+      total2 = troco * (-1); // total2 recebe total para fazer a soma dentro do while
       cout << endl;
       cout << "\nQuanto sera o pagamento: ";
       cin >> dinheiro2;
       troco = dinheiro2 - total2;
-      dinheiro = dinheiro + dinheiro2;
+      dinheiro = dinheiro + dinheiro2; // dinheiro recebe dinheiro2 para somar os valores que o usario enviou até se igual ou maior que o total
     }
     cout << "Troco R$ " << troco;
     cout << endl;
     cout << "\nDeseja emitir a sua nota fiscal?[S/N]: ";
     cin >> nota_fiscal;
     system("cls");
+    // nota fiscal
     if (nota_fiscal == 's' || nota_fiscal == 'S'){
       cout << "\n            PRECO UNI              QUANTIDADE                 PRECO";
       cout << endl;
+      // Se qtd1[i] ou qtd2[i] for diferente de zero vai imprimir na nota fiscal                                          Somando a valor dos produtos
       if (qtd1[0] != 0 || qtd2[0] != 0){
         cout << "\nPao...........R$ 1.00................. " << qtd1[0] + qtd2[0] << " .......................R$ " << ((prod[0] * qtd1[0]) + (prod[0] * qtd2[0]));
       }
@@ -215,6 +239,6 @@ int main(){
       cin >> opcao;
     }
     system("cls");
-  } while (opcao == 1);
+  } while (opcao == 1); // Se opcao for igual a 1, sera feita uma nova compra
   return 0;
 }
