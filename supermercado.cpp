@@ -2,73 +2,85 @@
 #include <cmath>
 #include <iomanip>
 #include <stdlib.h>
-using namespace std;
+#include "supermercado.cpp"
 
+using namespace std;
+int tamanho_produtos = 5;
 int main()
 {
-  float prod[5], qtd1[5], dinheiro, total, troco, guarda_qtd1, guarda_qtd2, dinheiro2, total2;
+  float prod[5], qtd[5], dinheiro, total, troco, guarda_qtd1, guarda_qtd2, dinheiro2, total2;
   int qtd2[5], codigo, i, opcao, n;
+  string tipo_funcao;
   char cancelar, nota_fiscal;
   do{
     codigo = 5;
     dinheiro = 0;
     troco = 0;
     i = 0;
-    guarda_qtd1 = 0;
+    guarda = 0;
     guarda_qtd2 = 0;
     total = 0;
     dinheiro2 = 0;
     total2 = 0;
 
-    prod[0] = 1;         qtd1[0] = 0;         qtd2[0] = 0;
-    prod[1] = 2;         qtd1[1] = 0;         qtd2[1] = 0;
-    prod[2] = 2;         qtd1[2] = 0;         qtd2[2] = 0;
-    prod[3] = 5.50;      qtd1[3] = 0;         qtd2[3] = 0;
-    prod[4] = 6.50;      qtd1[4] = 0;         qtd2[4] = 0;
+    prod[0] = 1;         qtd[0] = 0;         qtd2[0] = 0;
+    prod[1] = 2;         qtd[1] = 0;         qtd2[1] = 0;
+    prod[2] = 2;         qtd[2] = 0;         qtd2[2] = 0;
+    prod[3] = 5.50;      qtd[3] = 0;         qtd2[3] = 0;
+    prod[4] = 6.50;      qtd[4] = 0;         qtd2[4] = 0;
     
     cout << "---------------------------------------";
     cout << "\nBem vindo ao nosso estabelecimento!";
     cout << "\n---------------------------------------";
 
-    while (codigo > 4){ // Vai repitir enquanto codigo for maior que 4
+    while (codigo > 4){ // Vai repetir enquanto codigo for maior que 4
       cout << endl;
       cout << "\nCodigo do produto: ";
-      cin >> codigo;
+      tipo_funcao = 'codigo';
+      //cin >> codigo;
+      codigo = pede_codigo(tipo_funcao, tamanho_produtos);
+      
       do{
         switch (codigo){
         case 0:
           cout << endl;
           cout << "\nQuantidade de pao: ";
-          cin >> guarda_qtd1;
-          if (guarda_qtd1 < 0){ // Se de guarda_qtd1 for menor 0 sera invalido
+          tipo_funcao = 'quantidade';
+          guarda = pede_codigo(tipo_funcao);
+          qtd[0] = qtd[0] + guarda; // Se guarda_qtd1 for maior que 0 sera valido
+          //cin >> guarda_qtd1;
+          /*if (guarda_qtd1 < 0){ // Se de guarda_qtd1 for menor 0 sera invalido
             cout << "VALOR INVALIDO!";
           }
-          else{
-            qtd1[0] = qtd1[0] + guarda_qtd1; // Se guarda_qtd1 for maior que 0 sera valido
-          }
-          break;
+          else{*/
+          //}
+        break;
         case 1:
           cout << endl;
           cout << "\nQuantidade de mussarela: ";
-          cin >> guarda_qtd1;
-          if (guarda_qtd1 < 0){
+          tipo_funcao = 'quantidade';
+          guarda = pede_codigo(tipo_funcao);
+          qtd[1] = qtd[1] + guarda;
+          //cin >> guarda_qtd1;
+          /*if (guarda_qtd1 < 0){
             cout << "\nVALOR INVALIDO!";
           }
-          else{
-            qtd1[1] = qtd1[1] + guarda_qtd1;
-          }
+          else{*/
+          //}
           break;
         case 2:
           cout << endl;
           cout << "\nQuantidade de presunto: ";
-          cin >> guarda_qtd1;
+          tipo_funcao = 'quantidade';
+          guarda = pede_codigo(tipo_funcao);
+          qtd[2] = qtd[2] + guarda;
+          /*cin >> guarda_qtd;
           if (guarda_qtd1 < 0){
             cout << "\nVALOR INVALIDO!";
           }
           else
-          {
-            qtd1[2] = qtd1[2] + guarda_qtd1;
-          }
+          {*/
+          //}
           break;
         case 3:
           cout << endl;
