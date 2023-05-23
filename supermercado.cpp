@@ -6,8 +6,8 @@
 
 using namespace std;
 int tamanho_produtos = 5;
-int main()
-{
+int main(){
+  // testando
   float prod[5], qtd[5], dinheiro, total, troco, guarda_qtd1, guarda_qtd2, dinheiro2, total2;
   int qtd2[5], codigo, i, opcao, n;
   string tipo_funcao;
