@@ -1,5 +1,4 @@
-// Versao anterior do supermercado
-
+//Alteração na soma dos produtos
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -8,7 +7,7 @@ using namespace std;
 
 int pede_codigo(int tipo_funcao, int guarda);
 int soma_compra(float total, float dinheiro);
-
+int fazer_compra();
 int main(){
   float prod[5], qtd1[5], dinheiro, total, troco, guarda, dinheiro2;
   int qtd2[5], codigo, i, opcao;
@@ -34,6 +33,77 @@ int main(){
     cout << "\n---------------------------------------";
 
     cout << endl;
+    total = fazer_compra();
+    
+    cout << "\nTotal da compra: " << total << " REAIS";
+    cout << "\nDinheiro recebido: ";
+    cin >> dinheiro;
+
+    troco, dinheiro2 = soma_compra(total, dinheiro);
+    
+    cout << endl;
+    cout << "\nDeseja emitir a sua nota fiscal?[S/N]: ";
+    cin >> nota_fiscal;
+    system("cls");
+    
+    // nota fiscal
+    if (nota_fiscal == 's' || nota_fiscal == 'S'){
+      cout << "\n            PRECO UNI              QUANTIDADE                 PRECO";
+      cout << endl;
+      // Se qtd1[i] ou qtd2[i] for diferente de zero vai imprimir na nota fiscal                                          Somando a valor dos produtos
+      if (qtd1[0] != 0 || qtd2[0] != 0){
+        cout << "\nPao...........R$ 1.00................. " << qtd1[0] + qtd2[0] << " .......................R$ " << ((prod[0] * qtd1[0]) + (prod[0] * qtd2[0]));
+      }
+      if (qtd1[1] != 0 || qtd2[1] != 0){
+        cout << "\nMussarela.....R$ 2.00................. " << qtd1[1] + qtd2[1] << " .......................R$ " << ((prod[1] * qtd1[1]) + (prod[1] * qtd2[1]));
+      }
+      if (qtd1[2] != 0 || qtd2[2] != 0){
+        cout << "\nPresunto......R$ 2.00................. " << qtd1[2] + qtd2[2] << " .......................R$ " << ((prod[2] * qtd1[2]) + (prod[2] * qtd2[2]));
+      }
+      if (qtd1[3] != 0 || qtd2[3] != 0){
+        cout << "\nLeite.........R$ 5.50................. " << qtd1[3] + qtd2[3] << " .......................R$ " << ((prod[3] * qtd1[3]) + (prod[3] * qtd2[3]));
+      }
+      if (qtd1[4] != 0 || qtd2[4] != 0){
+        cout << "\nManteiga......R$ 6.50................. " << qtd1[4] + qtd2[4] << " .......................R$ " << ((prod[4] * qtd1[4]) + (prod[4] * qtd2[4]));
+      }
+      cout << endl;
+      cout << endl;
+      cout << endl;
+      cout << "\nTOTAL DA COMPRA...............................................R$ " << total;
+      cout << "\nDINHEIRO RECEBIDO.............................................R$ " << dinheiro2;
+      cout << "\nTROCO.........................................................R$ " << troco;
+      cout << endl;
+      cout << "\nCOMPRA FINALIZADA, VOLTE SEMPRE!";
+      cout << endl;
+      cout << "\nSe deseja fazer uma nova compra digite 1: ";
+      cin >> opcao;
+    }
+    else{
+      cout << "\nCOMPRA FINALIZADA, VOLTE SEMPRE!";
+      cout << "\nSe deseja fazer uma nova compra digite 1: ";
+      cin >> opcao;
+    }
+    system("cls");
+  } while (opcao == 1); // Se opcao for igual a 1, sera feita uma nova compra
+  return 0;
+}
+
+int fazer_compra(){
+  float prod[5], total, guarda;
+  int qtd2[5], qtd1[5],codigo, i;
+  char cancelar;
+  int tipo_funcao;
+    
+    i = 0;
+    guarda = 0;
+    total = 0;
+    
+    prod[0] = 1;         qtd1[0] = 0;         qtd2[0] = 0;
+    prod[1] = 2;         qtd1[1] = 0;         qtd2[1] = 0;
+    prod[2] = 2;         qtd1[2] = 0;         qtd2[2] = 0;
+    prod[3] = 5.50;      qtd1[3] = 0;         qtd2[3] = 0;
+    prod[4] = 6.50;      qtd1[4] = 0;         qtd2[4] = 0;
+    
     cout << "\nCodigo do produto: ";
     tipo_funcao = 0;
     codigo = pede_codigo(tipo_funcao, guarda);
@@ -120,59 +190,8 @@ int main(){
     for (i = 0; i < 5; i++){
       total = total + ((prod[i] * qtd1[i]) + (prod[i] * qtd2[i])); // Total recebe a soma das variaveis
     }
-    
-    cout << "\nTotal da compra: " << total << " REAIS";
-    cout << "\nDinheiro recebido: ";
-    cin >> dinheiro;
-
-    troco, dinheiro2 = soma_compra(total, dinheiro);
-    
-    cout << endl;
-    cout << "\nDeseja emitir a sua nota fiscal?[S/N]: ";
-    cin >> nota_fiscal;
-    system("cls");
-    
-    // nota fiscal
-    if (nota_fiscal == 's' || nota_fiscal == 'S'){
-      cout << "\n            PRECO UNI              QUANTIDADE                 PRECO";
-      cout << endl;
-      // Se qtd1[i] ou qtd2[i] for diferente de zero vai imprimir na nota fiscal                                          Somando a valor dos produtos
-      if (qtd1[0] != 0 || qtd2[0] != 0){
-        cout << "\nPao...........R$ 1.00................. " << qtd1[0] + qtd2[0] << " .......................R$ " << ((prod[0] * qtd1[0]) + (prod[0] * qtd2[0]));
-      }
-      if (qtd1[1] != 0 || qtd2[1] != 0){
-        cout << "\nMussarela.....R$ 2.00................. " << qtd1[1] + qtd2[1] << " .......................R$ " << ((prod[1] * qtd1[1]) + (prod[1] * qtd2[1]));
-      }
-      if (qtd1[2] != 0 || qtd2[2] != 0){
-        cout << "\nPresunto......R$ 2.00................. " << qtd1[2] + qtd2[2] << " .......................R$ " << ((prod[2] * qtd1[2]) + (prod[2] * qtd2[2]));
-      }
-      if (qtd1[3] != 0 || qtd2[3] != 0){
-        cout << "\nLeite.........R$ 5.50................. " << qtd1[3] + qtd2[3] << " .......................R$ " << ((prod[3] * qtd1[3]) + (prod[3] * qtd2[3]));
-      }
-      if (qtd1[4] != 0 || qtd2[4] != 0){
-        cout << "\nManteiga......R$ 6.50................. " << qtd1[4] + qtd2[4] << " .......................R$ " << ((prod[4] * qtd1[4]) + (prod[4] * qtd2[4]));
-      }
-      cout << endl;
-      cout << endl;
-      cout << endl;
-      cout << "\nTOTAL DA COMPRA...............................................R$ " << total;
-      cout << "\nDINHEIRO RECEBIDO.............................................R$ " << dinheiro2;
-      cout << "\nTROCO.........................................................R$ " << troco;
-      cout << endl;
-      cout << "\nCOMPRA FINALIZADA, VOLTE SEMPRE!";
-      cout << endl;
-      cout << "\nSe deseja fazer uma nova compra digite 1: ";
-      cin >> opcao;
-    }
-    else{
-      cout << "\nCOMPRA FINALIZADA, VOLTE SEMPRE!";
-      cout << "\nSe deseja fazer uma nova compra digite 1: ";
-      cin >> opcao;
-    }
-    system("cls");
-  } while (opcao == 1); // Se opcao for igual a 1, sera feita uma nova compra
-  return 0;
-}
+  return total;
+  }
 
 int pede_codigo(int tipo_funcao, int guarda){
   int aux_codigo;
