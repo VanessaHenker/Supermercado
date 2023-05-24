@@ -7,8 +7,10 @@
 using namespace std;
 
 int pede_codigo(int tipo_funcao, int guarda);
+int soma_compra(float total, float dinheiro);
+
 int main(){
-  float prod[5], qtd1[5], dinheiro, total, troco, guarda, dinheiro2, total2;
+  float prod[5], qtd1[5], dinheiro, total, troco, guarda, dinheiro2;
   int qtd2[5], codigo, i, opcao;
   char cancelar, nota_fiscal;
   int tipo_funcao;
@@ -20,8 +22,7 @@ int main(){
     guarda = 0;
     total = 0;
     dinheiro2 = 0;
-    total2 = 0;
-    
+
     prod[0] = 1;         qtd1[0] = 0;         qtd2[0] = 0;
     prod[1] = 2;         qtd1[1] = 0;         qtd2[1] = 0;
     prod[2] = 2;         qtd1[2] = 0;         qtd2[2] = 0;
@@ -119,26 +120,13 @@ int main(){
     for (i = 0; i < 5; i++){
       total = total + ((prod[i] * qtd1[i]) + (prod[i] * qtd2[i])); // Total recebe a soma das variaveis
     }
-
+    
     cout << "\nTotal da compra: " << total << " REAIS";
     cout << "\nDinheiro recebido: ";
     cin >> dinheiro;
 
-    troco = dinheiro - total;
-
-    total2 = total + total2;
-    dinheiro2 = dinheiro + dinheiro2;
-
-    while (troco < 0){
-      cout << "\nDinheiro insuficiente. Faltam R$" << troco * (-1) << " REAIS";
-      total2 = troco * (-1); // total2 recebe total para fazer a soma dentro do while
-      cout << endl;
-      cout << "\nQuanto sera o pagamento: ";
-      cin >> dinheiro2;
-      troco = dinheiro2 - total2;
-      dinheiro = dinheiro + dinheiro2; // dinheiro recebe dinheiro2 para somar os valores que o usario enviou até se igual ou maior que o total
-    }
-    cout << "Troco R$ " << troco;
+    troco, dinheiro2 = soma_compra(total, dinheiro);
+    
     cout << endl;
     cout << "\nDeseja emitir a sua nota fiscal?[S/N]: ";
     cin >> nota_fiscal;
@@ -168,7 +156,7 @@ int main(){
       cout << endl;
       cout << endl;
       cout << "\nTOTAL DA COMPRA...............................................R$ " << total;
-      cout << "\nDINHEIRO RECEBIDO.............................................R$ " << dinheiro;
+      cout << "\nDINHEIRO RECEBIDO.............................................R$ " << dinheiro2;
       cout << "\nTROCO.........................................................R$ " << troco;
       cout << endl;
       cout << "\nCOMPRA FINALIZADA, VOLTE SEMPRE!";
@@ -212,3 +200,28 @@ int pede_codigo(int tipo_funcao, int guarda){
   }
   return 0;
 }
+
+int soma_compra(float total, float dinheiro){
+    float troco, total2, dinheiro2;
+    troco = 0;
+    total2 = 0;
+    dinheiro2 = 0;
+    
+    troco = dinheiro - total;
+    total2 = total + total2;
+    dinheiro2 = dinheiro + dinheiro2;
+
+    while (troco < 0){
+      cout << "\nDinheiro insuficiente. Faltam R$" << troco * (-1) << " REAIS";
+      total2 = troco * (-1); // total2 recebe total para fazer a soma dentro do while
+      cout << endl;
+      cout << "\nQuanto sera o pagamento: ";
+      cin >> dinheiro2;
+      troco = dinheiro2 - total2;
+      dinheiro = dinheiro + dinheiro2; // dinheiro recebe dinheiro2 para somar os valores que o usario enviou até se igual ou maior que o total
+    }
+    cout << "Troco R$ " << troco;
+    
+  return troco, dinheiro;
+}
+
