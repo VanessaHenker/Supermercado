@@ -101,6 +101,7 @@ int main(){
         tipo_funcao = 1;
         guarda = pede_codigo(tipo_funcao, guarda);
         qtd2[3] = qtd2[3] + guarda;
+        break;
       case 4:
         cout << "\nQuantidade: ";
         tipo_funcao = 1;
@@ -209,30 +210,28 @@ float soma_troco(float total, float dinheiro, float troco){
   float total2, dinheiro2;
     total2 = 0;
     dinheiro2 = 0;
-    total = total + total2;
-    dinheiro = dinheiro + dinheiro2; 
+    total2 = total + total2;
+    dinheiro2 = dinheiro + dinheiro2; 
     if(troco == 0){
-    troco = dinheiro - total;
+      troco = dinheiro - total;
     return troco;
     }
-    else{
-    while (troco < 0){
-    total = total + total2;
-    dinheiro = dinheiro + dinheiro2;
-    cout << "\nDinheiro insuficiente. Faltam R$" << troco * (-1) << " REAIS";
-    total2 = troco * (-1); // total2 recebe total para fazer a soma dentro do while
-    cout << endl;
-    cout << "\nQuanto sera o pagamento: ";
-    cin >> dinheiro2;
-    troco = dinheiro2 - total2;
-    dinheiro = dinheiro + dinheiro2; // dinheiro recebe dinheiro2 para somar os valores que o usario enviou até se igual ou maior que o total
-    return dinheiro;
+    if(troco < 0){
+      while (troco < 0){
+      cout << "\nDinheiro insuficiente. Faltam R$" << troco * (-1) << " REAIS";
+      total2 = troco * (-1); // total2 recebe total para fazer a soma dentro do while
+      cout << endl;
+      cout << "\nQuanto sera o pagamento: ";
+      cin >> dinheiro2;
+      troco = dinheiro2 - total2;
+      dinheiro = dinheiro + dinheiro2; // dinheiro recebe dinheiro2 para somar os valores que o usario enviou até se igual ou maior que o total
     }
-   }
+    return dinheiro;
+  }
     if(troco > 0){
       troco = 0;
       troco = dinheiro - total;
-      return troco;
+    return troco;
     }
   return 0;
 }
