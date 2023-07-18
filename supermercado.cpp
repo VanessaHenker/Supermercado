@@ -7,12 +7,13 @@ using namespace std;
 
 int pede_codigo(int tipo_funcao, int guarda);
 float soma_troco(float total, float dinheiro, float troco);
+float preco[5], dinheiro, total, troco;
+
+int qtd[5], codigo, i, opcao, tipo_funcao, guarda;
+char cancelar, nota_fiscal;
+string nome_prod[5];
 
 int main(){
-  float preco[5], dinheiro, total, troco;
-  int qtd[5], codigo, i, opcao, tipo_funcao, guarda;
-  char cancelar, nota_fiscal;
-  string nome_prod[5];
   do{
     codigo = 5;
     dinheiro = 0;
