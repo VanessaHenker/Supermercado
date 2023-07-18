@@ -8,6 +8,9 @@ using namespace std;
 int pede_codigo(int tipo_funcao, int guarda);
 float soma_troco(float total, float dinheiro, float troco);
 void mostra_prod();
+void soma_prod();
+void mostra_nota_fiscal();
+
 float preco[5], dinheiro, total, troco;
 int qtd[5], codigo, i, opcao, tipo_funcao, guarda;
 char cancelar, nota_fiscal;
@@ -41,45 +44,10 @@ int main(){
     } 
     
     //system("cls");
-    
+    soma_prod();
+
     // nota fiscal
-    if (nota_fiscal == 's' || nota_fiscal == 'S'){
-      cout << "\n            PRECO UNI              QUANTIDADE                 PRECO";
-      cout << endl;
-      // Se qtd1[i] ou qtd2[i] for diferente de zero vai imprimir na nota fiscal                                          Somando a valor dos produtos
-      if (qtd[0] != 0){
-        cout << nome_prod[0] <<".............R$ "<< preco[0] <<"................. " << qtd[0] <<" .......................R$ " << preco[0] * qtd[0] << "\n";
-      }
-      if (qtd[1] != 0){
-        cout << nome_prod[1] <<".............R$ "<< preco[1] <<"................. " << qtd[1] <<" .......................R$ " << preco[1] * qtd[1] << "\n";
-      }
-      if (qtd[2] != 0){
-        cout << nome_prod[2] <<".............R$ "<< preco[2] <<"................. " << qtd[2] <<" .......................R$ " << preco[2] * qtd[2]  << "\n";
-      }
-      if (qtd[3] != 0 ){
-        cout << nome_prod[3] <<".............R$ "<< preco[3] <<"................. " << qtd[3] <<" .......................R$ " << preco[3] * qtd[3] << "\n";
-      }
-      if (qtd[4] != 0){
-        cout << nome_prod[4] <<".............R$ "<< preco[4] <<"................. " << qtd[4] <<" .......................R$ " << preco[4] * qtd[4] << "\n";
-      }
-      cout << endl;
-      cout << endl;
-      cout << endl;
-      cout << "\nTOTAL DA COMPRA...............................................R$ " << total;
-      cout << "\nDINHEIRO RECEBIDO.............................................R$ " << dinheiro;
-      cout << "\nTROCO.........................................................R$ " << troco;
-      cout << endl;
-      cout << "\nCOMPRA FINALIZADA, VOLTE SEMPRE!";
-      cout << endl;
-      cout << "\nSe deseja fazer uma nova compra digite 1: ";
-      cin >> opcao;
-    }
-    else{
-      cout << "\nCOMPRA FINALIZADA, VOLTE SEMPRE!";
-      cout << "\nSe deseja fazer uma nova compra digite 1: ";
-      cin >> opcao;
-    }
-    //system("cls");
+    
   } while (opcao == 1); // Se opcao for igual a 1, sera feita uma nova compra
   return 0;
 }
@@ -200,4 +168,44 @@ float soma_troco(float total, float dinheiro, float troco){
     return troco;
     }
   return 0;
+}
+
+void mostra_nota_fiscal(){
+if (nota_fiscal == 's' || nota_fiscal == 'S'){
+      cout << "\n            PRECO UNI              QUANTIDADE                 PRECO";
+      cout << endl;
+      // Se qtd1[i] ou qtd2[i] for diferente de zero vai imprimir na nota fiscal                                          Somando a valor dos produtos
+      if (qtd[0] != 0){
+        cout << nome_prod[0] <<".............R$ "<< preco[0] <<"................. " << qtd[0] <<" .......................R$ " << preco[0] * qtd[0] << "\n";
+      }
+      if (qtd[1] != 0){
+        cout << nome_prod[1] <<".............R$ "<< preco[1] <<"................. " << qtd[1] <<" .......................R$ " << preco[1] * qtd[1] << "\n";
+      }
+      if (qtd[2] != 0){
+        cout << nome_prod[2] <<".............R$ "<< preco[2] <<"................. " << qtd[2] <<" .......................R$ " << preco[2] * qtd[2]  << "\n";
+      }
+      if (qtd[3] != 0 ){
+        cout << nome_prod[3] <<".............R$ "<< preco[3] <<"................. " << qtd[3] <<" .......................R$ " << preco[3] * qtd[3] << "\n";
+      }
+      if (qtd[4] != 0){
+        cout << nome_prod[4] <<".............R$ "<< preco[4] <<"................. " << qtd[4] <<" .......................R$ " << preco[4] * qtd[4] << "\n";
+      }
+      cout << endl;
+      cout << endl;
+      cout << endl;
+      cout << "\nTOTAL DA COMPRA...............................................R$ " << total;
+      cout << "\nDINHEIRO RECEBIDO.............................................R$ " << dinheiro;
+      cout << "\nTROCO.........................................................R$ " << troco;
+      cout << endl;
+      cout << "\nCOMPRA FINALIZADA, VOLTE SEMPRE!";
+      cout << endl;
+      cout << "\nSe deseja fazer uma nova compra digite 1: ";
+      cin >> opcao;
+    }
+    else{
+      cout << "\nCOMPRA FINALIZADA, VOLTE SEMPRE!";
+      cout << "\nSe deseja fazer uma nova compra digite 1: ";
+      cin >> opcao;
+    }
+    //system("cls");
 }
