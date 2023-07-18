@@ -41,25 +41,6 @@ int main(){
     } 
     
     //system("cls");
-    for (i = 0; i < 5; i++){
-      total = total + (preco[i] * qtd[i]); // Total recebe a soma das variaveis
-    }
-    cout << "\nTotal da compra: " << total << " REAIS";
-    cout << "\nDinheiro recebido: ";
-    cin >> dinheiro;
-
-    troco = soma_troco(total, dinheiro, troco);
-    if(troco < 0){
-    dinheiro = soma_troco(total, dinheiro, troco);
-    troco = 1;
-    troco = soma_troco(total, dinheiro, troco);
-    }
-    cout << "Troco R$ " << troco;
-    
-    cout << endl;
-    cout << "\nDeseja emitir a sua nota fiscal?[S/N]: ";
-    cin >> nota_fiscal;
-    //system("cls");
     
     // nota fiscal
     if (nota_fiscal == 's' || nota_fiscal == 'S'){
@@ -145,6 +126,24 @@ void mostra_prod(){
   for (i = 0; i < 5; i++){
     total = total + (preco[i] * qtd[i]); // Total recebe a soma das variaveis
     }
+}
+void soma_prod(){
+  cout << "\nTotal da compra: " << total << " REAIS";
+  cout << "\nDinheiro recebido: ";
+  cin >> dinheiro;
+  
+  troco = soma_troco(total, dinheiro, troco);
+    if(troco < 0){
+    dinheiro = soma_troco(total, dinheiro, troco);
+    troco = 1;
+    troco = soma_troco(total, dinheiro, troco);
+    }
+  cout << "Troco R$ " << troco;
+    
+  cout << endl;
+  cout << "\nDeseja emitir a sua nota fiscal?[S/N]: ";
+  cin >> nota_fiscal;
+    //system("cls");
 }
 int pede_codigo(int tipo_funcao, int guarda){
   int aux_codigo, i;
