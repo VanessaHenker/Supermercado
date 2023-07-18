@@ -7,9 +7,8 @@ using namespace std;
 
 int pede_codigo(int tipo_funcao, int guarda);
 float soma_troco(float total, float dinheiro, float troco);
+void mostra_prod();
 float preco[5], dinheiro, total, troco;
-int mostra_prod();
-
 int qtd[5], codigo, i, opcao, tipo_funcao, guarda;
 char cancelar, nota_fiscal;
 string nome_prod[5];
@@ -36,44 +35,7 @@ int main(){
 
     cout << endl;
     while (cancelar == 'n' || cancelar == 'N'){
-    cout << "\nCodigo do produto: ";
-    tipo_funcao = 0;
-    codigo = pede_codigo(tipo_funcao, guarda);
-    switch (codigo){
-    case 0:
-      cout << "\nQuantidade de " << nome_prod[0] << ": ";
-      tipo_funcao = 1;
-      guarda = pede_codigo(tipo_funcao, guarda);
-      qtd[0] = qtd[0] + guarda; // Se guarda_qtd1 for maior que 0 sera valido
-      break;
-    case 1:
-      cout << "\nQuantidade de " << nome_prod[1] << ": ";
-      tipo_funcao = 1;
-      guarda = pede_codigo(tipo_funcao, guarda);
-      qtd[1] = qtd[1] + guarda;
-      break;
-    case 2:
-      cout << "\nQuantidade de " << nome_prod[2] << ": ";
-      tipo_funcao = 1;
-      guarda = pede_codigo(tipo_funcao, guarda);
-      qtd[2] = qtd[2] + guarda;
-      break;
-    case 3:
-      cout << "\nQuantidade de " << nome_prod[3] << ": ";
-      tipo_funcao = 1;
-      guarda = pede_codigo(tipo_funcao, guarda);
-      qtd[3] = qtd[3] + guarda;
-      break;
-    case 4:
-      cout << "\nQuantidade de " << nome_prod[4] << ": ";
-      tipo_funcao = 1;
-      guarda = pede_codigo(tipo_funcao, guarda);
-      qtd[4] = qtd[4] + guarda;
-      break;
-    default:
-      cout << "\nCodigo invalido, tente novamente!";
-      break;
-    }
+    mostra_prod();
     cout << "\nDeseja finalizar a compra?[S/N]: ";
     cin >> cancelar;
     } 
@@ -141,8 +103,48 @@ int main(){
   return 0;
 }
 
-int mostra_prod(){
-
+void mostra_prod(){
+  cout << "\nCodigo do produto: ";
+  tipo_funcao = 0;
+  codigo = pede_codigo(tipo_funcao, guarda);
+  switch (codigo){
+    case 0:
+      cout << "\nQuantidade de " << nome_prod[0] << ": ";
+      tipo_funcao = 1;
+      guarda = pede_codigo(tipo_funcao, guarda);
+      qtd[0] = qtd[0] + guarda; // Se guarda_qtd1 for maior que 0 sera valido
+      break;
+    case 1:
+      cout << "\nQuantidade de " << nome_prod[1] << ": ";
+      tipo_funcao = 1;
+      guarda = pede_codigo(tipo_funcao, guarda);
+      qtd[1] = qtd[1] + guarda;
+      break;
+    case 2:
+      cout << "\nQuantidade de " << nome_prod[2] << ": ";
+      tipo_funcao = 1;
+      guarda = pede_codigo(tipo_funcao, guarda);
+      qtd[2] = qtd[2] + guarda;
+      break;
+    case 3:
+      cout << "\nQuantidade de " << nome_prod[3] << ": ";
+      tipo_funcao = 1;
+      guarda = pede_codigo(tipo_funcao, guarda);
+      qtd[3] = qtd[3] + guarda;
+      break;
+    case 4:
+      cout << "\nQuantidade de " << nome_prod[4] << ": ";
+      tipo_funcao = 1;
+      guarda = pede_codigo(tipo_funcao, guarda);
+      qtd[4] = qtd[4] + guarda;
+      break;
+  default:
+    cout << "\nCodigo invalido, tente novamente!";
+    break;
+  }
+  for (i = 0; i < 5; i++){
+    total = total + (preco[i] * qtd[i]); // Total recebe a soma das variaveis
+    }
 }
 int pede_codigo(int tipo_funcao, int guarda){
   int aux_codigo, i;
