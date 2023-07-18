@@ -8,6 +8,7 @@ using namespace std;
 int pede_codigo(int tipo_funcao, int guarda);
 float soma_troco(float total, float dinheiro, float troco);
 float preco[5], dinheiro, total, troco;
+int mostra_prod();
 
 int qtd[5], codigo, i, opcao, tipo_funcao, guarda;
 char cancelar, nota_fiscal;
@@ -15,6 +16,7 @@ string nome_prod[5];
 
 int main(){
   do{
+    cancelar = 'n';
     codigo = 5;
     dinheiro = 0;
     troco = 0;
@@ -33,7 +35,7 @@ int main(){
     cout << "\n---------------------------------------";
 
     cout << endl;
-    do{
+    while (cancelar == 'n' || cancelar == 'N'){
     cout << "\nCodigo do produto: ";
     tipo_funcao = 0;
     codigo = pede_codigo(tipo_funcao, guarda);
@@ -74,7 +76,7 @@ int main(){
     }
     cout << "\nDeseja finalizar a compra?[S/N]: ";
     cin >> cancelar;
-    } while (cancelar == 'n' || cancelar == 'N');
+    } 
     
     //system("cls");
     for (i = 0; i < 5; i++){
@@ -139,6 +141,9 @@ int main(){
   return 0;
 }
 
+int mostra_prod(){
+
+}
 int pede_codigo(int tipo_funcao, int guarda){
   int aux_codigo, i;
   int aux_quantidade;
