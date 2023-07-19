@@ -24,18 +24,17 @@ int main(){
     cout << "---------------------------------------";
     cout << "\nBem vindo ao nosso estabelecimento!";
     cout << "\n---------------------------------------";
-
     cout << endl;
     while (cancelar == 'n' || cancelar == 'N'){
       mostra_prod();
       cout << "\nDeseja finalizar a compra?[S/N]: ";
       cin >> cancelar;
     }
-
     // system("cls");
     soma_prod();
     // nota fiscal
     mostra_nota_fiscal();
+    opcao = 1;
   }
   return 0;
 }
